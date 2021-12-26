@@ -1,0 +1,28 @@
+# Template file for 'rofi-wayland'
+pkgname=rofi-wayland
+version=1.7.2
+revision=1
+#archs="i686 x86_64"
+wrksrc="rofi-$version+wayland1"
+#create_wrksrc=yes
+build_style=meson
+# configure_args=""
+#make_build_args=""
+#make_install_args=""
+#conf_files=""
+#make_dirs="/var/log/dir 0755 root root"
+hostmakedepends="bison check glib-devel flex pkg-config"
+makedepends="cairo-devel gdk-pixbuf-devel libglib-devel libxcb-devel
+ libxkbcommon-devel libxkbcommon-x11 pango-devel startup-notification-devel
+ xcb-util-devel xcb-util-cursor-devel xcb-util-wm-devel wayland-devel
+ wayland-protocols"
+short_desc="Rofi with Wayland support (lbonn fork)"
+maintainer="Tung Anh Vu <vu.tunganh96@gmail.com>"
+license="MIT"
+homepage="https://github.com/lbonn/rofi"
+distfiles="https://github.com/lbonn/rofi/releases/download/$version%2Bwayland1/rofi-$version+wayland1.tar.gz"
+checksum=13c9ac16e9940f72e952d65fdaaa41b0fcbd8da483119a9f6b9bea5940ff2118
+
+post_install() {
+	vlicense COPYING
+}
