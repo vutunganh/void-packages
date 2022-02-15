@@ -1,0 +1,17 @@
+# Template file for 'neovim-gtk'
+pkgname=neovim-gtk
+version=0.4.1
+revision=1
+build_style=cargo
+hostmakedepends="pkg-config"
+makedepends="gtk+3-devel"
+short_desc="GTK UI for Neovim"
+maintainer="Tung Anh Vu <vu.tunganh96@gmail.com>"
+license="GPL-3.0-or-later"
+homepage="https://github.com/Lyude/neovim-gtk"
+distfiles="https://github.com/Lyude/neovim-gtk/archive/refs/tags/v${version}.tar.gz"
+checksum=c17df8f60b9b7a84ec7ab4d4c87c69ebdd25c36b02ff6ff04d31cfbbf137737c
+
+# do_install() {
+#   make PREFIX=/usr install
+# }
