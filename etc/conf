@@ -1,0 +1,4 @@
+XBPS_ALLOW_RESTRICTED=yes
+XBPS_MAKEJOBS=4
+XBPS_DISTFILES_MIRROR='https://mirror.fit.cvut.cz/voidlinux/distfiles'
+XBPS_PKG_OPTIONS_gtk+3="~x11"
