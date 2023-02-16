@@ -1,0 +1,31 @@
+# Template file for 'mullvad-vpn-bin'
+pkgname=mullvad-vpn-bin
+version=2023.1
+revision=1
+depends="dbus"
+short_desc="Mullvad VPN client app for desktop"
+maintainer="Tung Anh Vu <vu.tunganh96@gmail.com>"
+license="GPL-3.0-or-later"
+homepage="https://www.mullvad.net"
+distfiles="https://github.com/mullvad/mullvadvpn-app/releases/download/${version}/MullvadVPN-${version}_amd64.deb"
+nopie_files="/opt/Mullvad\ VPN/resources/app.asar.unpacked/node_modules/grpc-tools/bin/grpc_node_plugin
+ /opt/Mullvad\ VPN/resources/app.asar.unpacked/node_modules/grpc-tools/bin/protoc"
+checksum=f8d8780988e2be3ac29a887340c4a36fdcf96e000202fa2de6850004f5051314
+make_dirs="/var/log/mullvad-vpn 755 0 0"
+
+do_extract() {
+  ar p ${XBPS_SRCDISTDIR}/${pkgname}-${version}/MullvadVPN-${version}_amd64.deb \
+   data.tar.xz | bsdtar -x -f -
+
+	mv usr/local/share/zsh usr/share
+}
+
+do_install() {
+	vmkdir usr
+	vcopy ${wrksrc}/usr/* usr
+
+	vmkdir opt
+	vcopy ${wrksrc}/opt/* opt
+
+	vsv mullvad-vpn
+}
